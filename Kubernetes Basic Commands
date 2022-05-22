@@ -1,1 +1,4 @@
-Kubectl
+Create: Kubectl create deployment <deployment-name> --image=<image-name>
+Expose: Kubectl expose deployment <deployment-name> --port=8080 -- Type=LoadBalancer
+
+
