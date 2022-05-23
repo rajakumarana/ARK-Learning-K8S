@@ -14,3 +14,40 @@ Our design: 1 Master node & 2 Woker node
 
 Step 3: HA Kubernetes Cluster
 
+Maintain Two Master node cluster - 
+
+        API Server
+       
+  ETCD  Controller manager Scheduler
+  
+kubectl --> api-server thru Active 6443 ..Also Load Balancer 6443
+
+controller manager end point --> Active and Stand-by 
+
+kube-controller-manager --leader-elect true [other options]
+                        --leader-elect-lease-duration 15s
+                        --leader-elect-renew-deadline 10s                     
+                        --leader-elect-retry-period 2s
+                        
+stacked topology
+External ETCD topology
+
+API server will talk to ETCD
+
+Our design changed to : 2 Master node, 2 Worker node, LoadBalancer Node
+
+ETCD:
+
+Distributed
+
+Quorum = n/2+1 --> 5/2 + 1 = 3.5 ~ 3
+               --> 6/2 + 1 = 4 
+
+Instances Quorum Fault-toleration(=Instances - Quoram)
+  3         2        1     
+  5         3        2
+  7         4        3
+  
+  ETCDCTL
+
+
