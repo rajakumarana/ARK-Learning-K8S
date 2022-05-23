@@ -1,0 +1,16 @@
+Step 1: Intro for Design a kubernetes cluster
+  Purpose: Learning/Development&Testing/Hosting Production Applications
+  Cloud or Onprem: Kubeadm for on-prem,GKE for GCP,Kops for AWS,AKS for Azure
+  Workloads: --> How many nodes? wat kind of Web/Big data/Analytics?Application Resource Requirements(CPU Intensive, Memory Intensive)
+  Traffic: Heavy Traffic, Burst Traffic
+
+Step 2: Chossing the Kubernetes Infra
+
+Minikube              Vs KUBEADM
+Deploys VMs              Requires VMs to be ready
+Single node cluster      Single/Multi Node cluster
+
+Our design: 1 Master node & 2 Woker node
+
+Step 3: HA Kubernetes Cluster
+
