@@ -1,4 +1,28 @@
 Application Failures:  User <- Web-serv <- Web <-DB-serv <- DB
 Check Accessibility --> curl http://web-service-ip:node-port
-Check Service status --> kubectl describe service we-service (End-points,Selector)
+Check Service status --> kubectl describe service web-service (End-points,Selector)
 Check POD status --> kubectl get pod (RESTARTS = 5),kubectl describe pod web,kubectl logs -f --previous
+
+Control Plane failures:
+Check node status --> Kubectl get nodes,kubectl get pods,
+Check control plane pods(Kubeadm) --> kubectl get pods -n kube-system
+Check control plane Services(kubeadm) --> service kube-apiserver status
+                                          service kube-controller-manager status
+                                          service kube-scheduler status
+                                          service kubelet status
+                                          service kube-proxy status
+Check service logs: kubectl logs kube-api-server-master -n kube-system
+sudo journalctl -u kube-apiserver
+
+Worker node failures:
+kubectl get nodes
+kubect describe node <node-name> -- last Heartbeat Time , Status (Flag - False,True and Unknown)
+
+top ,df -h
+
+Check ceritificates
+
+Network Trouble shooting:
+
+                                  
+
