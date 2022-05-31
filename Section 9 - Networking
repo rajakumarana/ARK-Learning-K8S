@@ -1,0 +1,4 @@
+Cluster Networking:
+Master: ETCD - 2379 kube-api - 6443  kubelet - 10250 kube-ctrl-mgr - 10252 ETCD - 2380
+Worker: SVC - 30000-32767 kubelet 10250
+
